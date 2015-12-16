@@ -476,6 +476,7 @@ public class ColorPickerView extends View {
 		colorEdit.setText("#" + Integer.toHexString(argb));
 		if (internal)
 			colorEdit.addTextChangedListener(colorTextChange);
+		 colorEdit.clearFocus();
 	}
 
 	private void setColorToSliders(int selectedColor) {
