@@ -62,7 +62,7 @@ public class ColorPickerView extends View {
 		@Override
 		public void afterTextChanged(Editable s) {
 			try {
-				if (s == null)
+				if (s == null||s.toString().length())
 					return;
 				int color = Color.parseColor(s.toString());
 				setColor(color);
@@ -476,6 +476,7 @@ public class ColorPickerView extends View {
 		colorEdit.setText("#" + Integer.toHexString(argb));
 		if (internal)
 			colorEdit.addTextChangedListener(colorTextChange);
+		 colorEdit.clearFocus();
 	}
 
 	private void setColorToSliders(int selectedColor) {
