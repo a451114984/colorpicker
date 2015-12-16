@@ -374,8 +374,10 @@ public class ColorPickerView extends View {
 
 	public void setColorEdit(EditText colorEdit) {
 		this.colorEdit = colorEdit;
-		if (this.colorEdit != null)
+		if (this.colorEdit != null)｛
 			this.colorEdit.setVisibility(View.VISIBLE);
+			setColorText(colorEdit.getText().toString(),true);
+		｝
 	}
 
 	public void setDensity(int density) {
@@ -476,7 +478,17 @@ public class ColorPickerView extends View {
 		colorEdit.setText("#" + Integer.toHexString(argb));
 		if (internal){
 			colorEdit.addTextChangedListener(colorTextChange);
-			setColor(argb);
+		}
+	}
+	
+	private void setColorText(string argb, boolean internal) {
+		if (colorEdit == null)
+			return;
+		if (internal)
+			colorEdit.removeTextChangedListener(colorTextChange);
+		colorEdit.setText(argb);
+		if (internal){
+			colorEdit.addTextChangedListener(colorTextChange);
 		}
 	}
 
