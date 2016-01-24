@@ -378,6 +378,7 @@ public class ColorPickerView extends View {
 			this.colorEdit.setVisibility(View.VISIBLE);
 		｝
 		setColorText(colorEdit.getText().toString(),true);
+		colorEdit.addTextChangedListener(colorTextChange);
 	}
 
 	public void setDensity(int density) {
